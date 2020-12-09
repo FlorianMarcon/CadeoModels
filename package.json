@@ -1,0 +1,14 @@
+{
+  "name": "CadeoModels",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/FlorianMarcon/CadeoModels.git",
+  "author": "florian.marcon@epitech.eu <florian.marcon@epitech.eu@epitech.eu>",
+  "license": "MIT",
+  "scripts": {
+    "doc": "typedoc ./src"
+  },
+  "devDependencies": {
+    "typedoc": "^0.19.1"
+  }
+}
