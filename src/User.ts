@@ -1,9 +1,8 @@
-
+import IBrand from './seller/Brand'
 export enum Roles {
 	ADMIN = 'ADMIN',
-	TUTOR = 'TUTOR',
-	PUPIL = 'PUPIL',
-	LAMBDA	=	'LAMBDA'
+	LAMBDA = 'LAMBDA',
+	SELLER = 'SELLER',
 }
 
 export interface IUser {
@@ -15,15 +14,16 @@ export interface IUser {
 
 	email		:		string;
 
-	password	:		string;
-
-	phone		:		string;
-
 	confirmed	:		boolean;
+	phone		:		string;
 
 	birthDate	:		Date;
 
-	role		:	Roles;
+	role		:		Roles;
+
+	brands		:		Array<IBrand>
+
+	currentBrand?:		IBrand
 }
 
 export interface IUserCreate {

@@ -1,7 +1,7 @@
 /**
  * Interface representing brand informations
  */
-export default interface IBrand {
+export default interface IBrand  {
 
     _id     :    number; /** Id of the brand */
 
