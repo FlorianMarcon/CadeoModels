@@ -9,6 +9,9 @@ export interface IStore {
 
     name    :   string; /** Name of the store */
 
+    calendar?    :   string; /** Url to calendar */
+
+    /** FIELD RESOLVERS */
     brand   :   IBrand; /** Brand having the store */
 }
 
