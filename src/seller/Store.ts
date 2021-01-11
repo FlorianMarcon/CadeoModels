@@ -1,3 +1,4 @@
+import { ILocation } from "../Location";
 import IBrand from "./Brand";
 
 /**
@@ -5,14 +6,16 @@ import IBrand from "./Brand";
  */
 export interface IStore {
 
-    _id     :    number; /** Id of the store */
+	_id     :    number; /** Id of the store */
 
-    name    :   string; /** Name of the store */
+	name    :   string; /** Name of the store */
 
-    calendar?    :   string; /** Url to calendar */
+	calendar?    :   string; /** Url to calendar */
 
-    /** FIELD RESOLVERS */
-    brand   :   IBrand; /** Brand having the store */
+	/** FIELD RESOLVERS */
+	brand   :   IBrand; /** Brand having the store */
+
+	location?  :	ILocation; /** Store location. Can be null */
 }
 
 /**
@@ -20,9 +23,9 @@ export interface IStore {
  */
 export interface IStoreCreate {
 
-    name            :   string; /** Name of the store */
+	name            :   string; /** Name of the store */
 
-    idBrand         :   number; /** Id of the brand having the store */
+	idBrand         :   number; /** Id of the brand having the store */
 }
 
 /**
@@ -30,7 +33,7 @@ export interface IStoreCreate {
  */
 export interface IStoreUpdate {
 
-    _id             :   number; /** id of the store to update */
+	_id             :   number; /** id of the store to update */
 
-    name?            :   string; /** Name of the store */
+	name?            :   string; /** Name of the store */
 }
