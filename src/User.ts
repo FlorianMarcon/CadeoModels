@@ -6,52 +6,53 @@ export enum Roles {
 }
 
 export interface IUser {
-	_id			:		string;
+	_id			:		string; /** Id of the user */
 
-	firstname	:		string;
+	firstname	:		string; /** User's firstname */
 
-	lastname	:		string;
+	lastname	:		string; /** User's lastname */
 
-	email		:		string;
+	email		:		string; /** User's email */
 
-	confirmed	:		boolean;
-	phone		:		string;
+	confirmed	:		boolean; /** User's has confirmed his email */
+	phone		:		string; /** User's phone number */
 
-	birthDate	:		Date;
+	birthDate	:		Date;	/** User's birth date */
 
-	role		:		Roles;
+	role		:		Roles; /** User's role */
 
-	brands		:		Array<IBrand>
+	/** FIELD RESOLVER */
+	brands		:		Array<IBrand>  /** User's brand */
 
-	currentBrand?:		IBrand
+	currentBrand?:		IBrand; /** Brand currently used */
 }
 
 export interface IUserCreate {
-	firstname	:		string;
+	firstname	:		string; /** User's firstname */
 
-	lastname	:		string;
+	lastname	:		string; /** User's lastname */
 
-	email		:		string;
+	email		:		string; /** User's email */
 
-	password	:		string;
+	password	:		string; /** User's password */
 
-	phone		:		string;
+	phone		:		string; /** User's phone */
 
-	birthDate	:		Date;
+	birthDate	:		Date; /** User's birth date */
 	
-	role		:	Roles;
+	role		:	Roles; /** User's role */
 }
 
 export interface IUserUpdate {
-	_id			:		string;
+	_id			:		string /** (optional) User's _id */;
 
-	firstname?	:		string;
+	firstname?	:		string /** (optional) User's firstname */;
 
-	lastname?	:		string;
+	lastname?	:		string /** (optional) User's lastname */;
 
-	phone?		:		string;
+	phone?		:		string /** (optional) User's phone */;
 
-	birthDate?	:		Date;
+	birthDate?	:		Date /** (optional) User's birth date */;
 }
 
 export interface IUserDelete {
