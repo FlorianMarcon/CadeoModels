@@ -1,3 +1,5 @@
+import { IStore } from "./Store";
+
 /**
  * Interface representing brand informations
  */
@@ -8,6 +10,9 @@ export default interface IBrand  {
     name    :   string; /** Name of the brand */
 
     description?:    string; /** Description of the brand. Can be undefined */
+
+    /** FIELD RESOLVERS */
+    stores  :   Array<IStore>; /** Stores linked with the brand */
 }
 
 /**
