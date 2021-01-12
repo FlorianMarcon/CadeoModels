@@ -1,9 +1,9 @@
 export interface ILocation {
 	_id			:		number; /** ID of location */
 
-	latitude?	:		string; /** latitude of location */
+	latitude?	:		number; /** latitude of location */
 
-	longitude?	:		string; /** longitude of location */
+	longitude?	:		number; /** longitude of location */
 
 	country?	:		string; /** country of location */
 
@@ -17,9 +17,9 @@ export interface ILocation {
 }
 
 export interface ILocationCreate {
-	latitude?	:		string; /** latitude of location */
+	latitude?	:		number; /** latitude of location */
 
-	longitude?	:		string; /** longitude of location */
+	longitude?	:		number; /** longitude of location */
 
 	country?	:		string; /** country of location */
 
@@ -35,9 +35,9 @@ export interface ILocationCreate {
 export interface ILocationUpdate {
 	_id			:		number; /** ID of location */
 
-	latitude?	:		string; /** latitude of location */
+	latitude?	:		number; /** latitude of location */
 
-	longitude?	:		string; /** longitude of location */
+	longitude?	:		number; /** longitude of location */
 
 	country?	:		string; /** country of location */
 
