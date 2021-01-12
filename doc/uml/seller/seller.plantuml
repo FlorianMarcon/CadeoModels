@@ -1,0 +1,67 @@
+@startuml
+
+class IUser {
+	_id			:		string
+
+	firstname	:		string
+
+	lastname	:		string
+
+	email		:		string
+
+	confirmed	:		boolean
+	phone		:		string
+
+	birthDate	:		Date
+
+	role			:		Roles
+
+	idCurrentBrand brands()	:		Array<IBrand>
+	idBrands currentBrand()	:		IBrand
+}
+
+class IBrand {
+	_id   		 :    number
+
+    name		:   string
+
+    description?:    string
+
+    stores()  :   Array<IStore>
+}
+
+class IStore {
+
+	_id     :    number
+
+	name    :   string
+
+	calendar?    :   string
+
+	idBrand brand()   :   IBrand
+
+	idLocation location()  :	ILocation
+}
+
+class ILocation {
+	_id			:		number;
+
+	latitude?	:		number
+
+	longitude?	:		number
+
+	country?	:		string
+
+	city?		:		string
+
+	postcode?	:		string
+
+	adress1?	:		string
+
+	adress2?	:		string
+}
+
+IUser::idBrands -> IBrand
+IStore::idBrand -> IBrand
+IStore::idLocation -> ILocation
+@enduml
