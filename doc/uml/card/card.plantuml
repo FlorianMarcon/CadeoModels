@@ -1,0 +1,134 @@
+@startuml
+
+class User {
+	.. Fields ..
+
+	__
+	.. Field resolvers ..
+	cards()
+	card()
+	.. Mutations ..
+
+	.. Queries ..
+}
+
+User::cards --> Card
+User::card --> Card
+
+class Brand {
+	.. Fields ..
+
+	__
+	.. Field resolvers ..
+	.. Mutations ..
+
+	.. Queries ..
+}
+
+class Store {
+	.. Fields ..
+
+	__
+	.. Field resolvers ..
+	idBrand	brand()
+	.. Mutations ..
+
+	.. Queries ..
+}
+
+Store::idBrand --> Brand
+
+class Card {
+	.. Fields ..
+	_id
+
+	idProprietary
+
+	amount				:	number
+	amountRemainding	:	number
+
+	creationDate			:	Date
+	__
+	.. Field resolvers ..
+	idBrands brands()
+	idStores stores()
+
+	.. Mutations ..
+	buyCard()
+	buyForCard()
+
+	.. Queries ..
+}
+Card::idBrands --> Brand
+Card::idStores --> Store
+
+enum CardGiftStatus {
+	SENDED
+	CANCELED
+	REFUSED
+	ACCEPTED
+}
+
+class CardGift {
+	.. Fields ..
+	emailDestinary		:	String
+
+	creationDate	:	Date
+	replyDate		:	Date
+
+	status		:	CardGiftStatus
+	__
+	.. Field resolvers ..
+	idCard card()
+	idGivor givor()
+	.. Mutations ..
+	acceptGift()
+
+	.. Queries ..
+}
+CardGift::idCard --> Card
+CardGift::idGivor --> User
+CardGift::status --> CardGiftStatus
+
+class CardPayment {
+	.. Fields ..
+	_id
+
+	amount
+
+	__
+	.. Field resolvers ..
+	idCard card()
+	idIssuer issuer()
+	.. Mutations ..
+
+	.. Queries ..
+}
+
+CardPayment::idCard --> Card
+CardPayment::idIssuer --> User
+
+class CardPurchase {
+	.. Fields ..
+	amount		:	number
+	reference	:	String
+
+	creationDate	:	Date
+	expirationDate	:	Date
+	__
+	.. Field resolvers ..
+	idCard card()
+	idStore store()
+	idBrand brand()
+
+	.. Mutations ..
+	createPurchase()
+	acceptPurchase()
+	refusePurchase()
+
+	.. Queries ..
+}
+CardPurchase::idCard -> Card
+CardPurchase::idStore -> Store
+CardPurchase::idBrand -> Brand
+@enduml

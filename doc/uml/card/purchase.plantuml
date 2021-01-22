@@ -1,0 +1,14 @@
+@startuml
+actor       customer
+database    API
+actor       seller
+
+customer -> API : Demande d'achat avec un montant spécifique.
+API --> customer : Retourne une référence d'achat ( QR CODE )
+
+seller --> customer : Scan du QRCODE
+seller -> API : Validation / Refus de l'achat
+
+API -> API : Mise à jour de la carte
+
+@enduml

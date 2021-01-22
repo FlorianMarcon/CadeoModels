@@ -1,0 +1,64 @@
+@startuml
+
+left to right direction
+folder Models {
+	enum CardPurchaseStatus {
+		SENDED
+		CANCELED
+		REFUSED
+		ACCEPTED
+	}
+	interface ICardPurchase {
+		_id
+		reference		:	string
+
+		idCard			:	number
+		idBrand			:	number
+
+		status			:	CardPurchaseStatus
+		amount			:	number
+
+		replyDate		:	Date
+		expirationDate	:	Date
+		creationDate		:	Date
+	}
+
+	interface ICardPurchaseCreate {
+		idCard		:	number
+
+		amount			:	number
+	}
+}
+
+folder Resolvers {
+
+	class CardResolver {
+		.. Field Resolvers ..
+		purchases(card: CardSchema): Array<CardPurchaseSchema>
+	}
+	class CardPurchaseResolver {
+		.. Queries ..
+
+		.. Mutations ...
+		createCardPurchase(user: UserSchema, purchase: ICardPurchaseCreate): CardPurchaseSchema
+		cancelCardPurchase(user: UserSchema, idCardPurchase: number): CardPurchaseSchema
+		acceptCardPurchase(user: UserSchema, idCardPurchase: number): CardPurchaseSchema
+		refusedCardPurchase(user: UserSchema, idCardPurchase: number): CardPurchaseSchema
+	}
+}
+
+folder Services {
+
+	class CardPurchaseService {
+		.. Just Fetch ..
+		getCardPurchases(idCard: number): Array<CardPurchaseSchema>
+		getCardPurchase(idCardPurchase: number): CardPurchaseSchema
+
+		.. Modification ..
+		createCardPurchase(purchase: ICardPurchaseCreate): CardPurchaseSchema
+
+		updateCardPurchaseStatus(idPurchase: number, status: CardPurchaseStatus): CardPurchaseSchema
+	}
+}
+
+@enduml

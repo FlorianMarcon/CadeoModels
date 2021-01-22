@@ -1,0 +1,73 @@
+@startuml
+
+left to right direction
+folder Models {
+	interface ICard {
+		_id
+
+		idProprietary
+
+		amount				:	number
+		amountRemainding	:	number
+
+		creationDate			:	Date
+		idAllowedBrands		:	Array<number>
+	}
+
+	interface ICardCreate {
+		idProprietary
+
+		amount				:	number
+
+		idAllowedBrands		:	Array<number>
+	}
+
+	interface ICardSupply {
+		idCard		:	number
+
+		amount		:	number
+	}
+}
+
+folder Resolvers {
+
+	class User {
+		.. Field Resolvers ..
+		ownCards(user: UserSchema): Array<CardSchema>
+		givenCards(user: UserSchema): Array<CardSchema>
+		supplyCards(user: UserSchema): Array<CardSchema>
+	}
+	class CardResolver {
+		.. Queries ..
+		cards(user: UserSchema): Array<CardSchema>
+
+		card(user: UserSchema, idCard: number): CardSchema
+
+		.. Mutations ...
+		buyCard(user: UserSchema, card: ICardCreate): CardSchema
+
+		buyForCard(user: UserSchema, supply: ICardSupply): CardSchema
+
+		.. Field Resolvers ..
+		proprietary(card: CardSchema): UserSchema
+	}
+}
+
+folder Services {
+
+	class CardService {
+		.. Just Fetch ..
+		getCards(idUser: number): Array<CardSchema>
+
+		getCard(idCard: number, idUser?: number): CardSchema
+
+		.. Modification ..
+		createCard(card: ICardCreate): CardSchema
+
+		updateCardAmountRemainding(idCard: number, amountRemainding: number, idProprietary?: number): CardSchema 
+		
+		updateCardProprietary(idCard: number, idNewProprietary: number, idCurrentProprietary?: number): CardSchema 
+	}
+}
+
+@enduml

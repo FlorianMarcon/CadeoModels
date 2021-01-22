@@ -1,0 +1,71 @@
+@startuml
+
+left to right direction
+folder Models {
+	enum CardGiftStatus {
+		SENDED
+		CANCELED
+		REFUSED
+		ACCEPTED
+	}
+	interface ICardGift {
+		_id
+
+		idCard			:	number
+		idGivor			:	number
+		emailDestinary	:	string
+
+		status			:	CardGiftStatus
+
+		creationDate		:	Date
+	}
+
+	interface ICardGiftCreate {
+		idCard		:	number
+
+		emailDestinary	:	number
+	}
+}
+
+folder Resolvers {
+
+	class UserResolver {
+		.. Field Resolvers ..
+		givenCardGifts(user: UserSchema): Array<CardGiftSchema>
+		receivedCardGifts(user: UserSchema): Array<CardGiftSchema>
+	}
+	class CardGiftResolver {
+		.. Queries ..
+		givenCardGifts(user: UserSchema): Array<CardGiftSchema>
+		receivedCardGifts(user: UserSchema): Array<CardGiftSchema>
+
+		.. Mutations ...
+		createCardGift(user: UserSchema, gift: ICardGiftCreate): CardGiftSchema
+		cancelCardGift(user: UserSchema, idCardGift: number): CardGiftSchema
+		acceptCardGift(user: UserSchema, idCardGift: number): CardGiftSchema
+		refusedCardGift(user: UserSchema, idCardGift: number): CardGiftSchema
+
+		.. Field Resolvers ..
+		card(cardGift: CardGiftSchema): CardSchema
+		givor(cardGift: CardGiftSchema): UserSchema
+		receiver(cardGift: CardGiftSchema): UserSchema | null
+	}
+}
+
+folder Services {
+
+	class CardGiftService {
+		.. Just Fetch ..
+		givenCardGifts(idGivor: number): Array<CardGiftSchema>
+		receivedCardGifts(email: string): Array<CardGiftSchema>
+
+		.. Modification ..
+		createCardGift(gift: ICardGiftCreate): CardGiftSchema
+
+		updateCardGiftStatus(idGift: number, status: CardGiftStatus, idUser?: number): CardGiftSchema
+		updateCardProprietary(idGift: number, idUser: number): CardGiftSchema
+
+	}
+}
+
+@enduml

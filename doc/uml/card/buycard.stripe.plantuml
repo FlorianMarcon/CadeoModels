@@ -1,0 +1,21 @@
+@startuml
+actor       receiver
+actor       customer
+database    API
+participant	stripe
+
+
+customer -> API : Demande d'achat du panier.
+
+API -> stripe : Création du paiement
+stripe -> API : Création du paiement et validation
+
+API --> customer : Validation de l'achat du panier
+
+customer -> API : Demande d'envoi de la carte cadeau
+API --> receiver : Envoie d'un email et si compte déja créer une notification
+
+receiver -> API : Création du compte
+receiver -> API : Acceptation du cadeu
+
+@enduml

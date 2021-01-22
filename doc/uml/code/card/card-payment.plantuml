@@ -1,0 +1,61 @@
+@startuml
+
+left to right direction
+
+folder Models {
+	interface ICardPayment {
+		_id
+
+		idCard				:	number
+		idCustomer			:	number
+
+		amount				:	number
+
+		creationDate			:	Date
+	}
+
+	interface ICardPaymentCreate {
+		idCard				:	number
+		idCustomer			:	number
+
+		amount				:	number
+	}
+}
+
+folder Resolvers {
+
+	class CardResolver {
+		.. Field Resolver ..
+		cardPayments(card: CardSchema): Array<CardPaymentSchema>
+	}
+
+	class UserResolver {
+		.. Field Resolver ..
+		cardPayments(user: UserSchema): Array<CardPaymentSchema>
+	}
+
+	class CardPaymentResolver {
+		.. Queries ..
+		cardPayments(user: UserSchema): Array<CardPaymentSchema>
+
+		cardPayment(user: UserSchema, idCardPayment: number): CardPaymentSchema
+
+		.. Mutations ...
+	}
+}
+
+folder Services {
+
+	class CardPaymentService {
+		.. Just Fetch ..
+		getCardPayment(idPayment: number): CardPaymentSchema
+
+		getCardPaymentsByUser(idUser: number): Array<CardPayment>
+		getCardPaymentsByCard(idCard: number): Array<CardPayment>
+
+		.. Modification ..
+		createCardPayment(payment: ICardPaymentCreate): CardPaymentSchema
+	}
+}
+
+@enduml
