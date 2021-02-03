@@ -40,7 +40,7 @@ export interface IUserCreate {
 
 	birthDate	:		Date; /** User's birth date */
 	
-	role		:	Roles; /** User's role */
+	role?		:	Roles; /** (optional) User's role. Only administrator can use this field */
 }
 
 export interface IUserUpdate {
@@ -53,6 +53,8 @@ export interface IUserUpdate {
 	phone?		:		string /** (optional) User's phone */;
 
 	birthDate?	:		Date /** (optional) User's birth date */;
+
+	role?		:	Roles; /** (optional) User's role. Only administrator can use this field */
 }
 
 export interface IUserDelete {
