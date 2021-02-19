@@ -1,8 +1,8 @@
-import IBrand from "../seller/Brand";
+import { IStore } from "../seller/Store";
 import { ICard } from "./card";
 
 export enum CardPurchaseStatus {
-	SENDED = "SENDED",
+	WAITING = "WAITING",
 	CANCELED = "CANCELED",
 	REFUSED = "REFUSED",
 	ACCEPTED = "ACCEPTED",
@@ -18,16 +18,16 @@ export interface ICardPurchase {
 	status			:	CardPurchaseStatus /** Status of the purchase */
 	amount			:	number /** Amount of the purchase (in cts) */
 
-	replyDate		:	Date /** Reply date */
-	expirationDate	:	Date /** Expiration date */
+	replyDate		:	Date | null /** Reply date */
+	expirationDate	:	Date | null /** Expiration date */
 	creationDate	:	Date /** Creation date */
 
 	/** FIELD RESOLVERS */
 	idCard			:	number; /** Id of the card used */
 	card			:	ICard;
 
-	idBrand			:	number; /** Place where card have been used */
-	brand			:	IBrand;
+	idStore			:	number; /** Place where card have been used */
+	store			:	IStore;
 }
 
 /**
@@ -35,6 +35,8 @@ export interface ICardPurchase {
  */
 export interface ICardPurchaseCreate {
 	idCard			:	number /** Id of the card to use */
+
+	idStore			:	number /** Place where card have been used */
 
 	amount			:	number /** Amount to spend (in cts) */
 }
