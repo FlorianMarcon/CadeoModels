@@ -23,10 +23,10 @@ export interface ICardPurchase {
 	creationDate	:	Date /** Creation date */
 
 	/** FIELD RESOLVERS */
-	idCard			:	number; /** Id of the card used */
+	// idCard			:	number; /** Id of the card used */
 	card			:	ICard;
 
-	idStore			:	number; /** Place where card have been used */
+	// idStore			:	number; /** Place where card have been used */
 	store			:	IStore;
 }
 

@@ -1,5 +1,7 @@
+import { IUser } from "../User";
+import { ICard } from "./card";
 
-enum CardGiftStatus {
+export enum CardGiftStatus {
 	SENDED = "SENDED",
 	CANCELED = "CANCELED",
 	REFUSED = "REFUSED",
@@ -11,13 +13,16 @@ enum CardGiftStatus {
 export interface ICardGift {
 	_id				:	number /** Gift id */
 
-	idCard			:	number /** Id of the card to gift */
-	idGivor			:	number /** Id of the user given the card */
 	emailDestinary	:	string /** Email of the destinary */
 
 	status			:	CardGiftStatus /** Gift status */
 
 	creationDate		:	Date /** Creation date */
+
+	/** FIELD RESOLVERS */
+	card			:	ICard
+
+	givor			:	IUser;
 }
 
 /**
