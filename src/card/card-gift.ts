@@ -31,5 +31,5 @@ export interface ICardGift {
 export interface ICardGiftCreate {
 	idCard			:	number /** Id of the card to send */
 
-	emailDestinary	:	number /** email of the destinary */
+	emailDestinary	:	string /** email of the destinary */
 }

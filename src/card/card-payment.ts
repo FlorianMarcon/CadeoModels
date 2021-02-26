@@ -1,4 +1,4 @@
-import { IStripePayment } from "../payments/stripe-purchase";
+import { IStripePayment } from "../payments/stripe-payment";
 import { IUser } from "../User";
 import { ICard } from "./card";
 
