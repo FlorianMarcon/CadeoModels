@@ -37,6 +37,8 @@ export interface ICardPurchaseCreate {
 	idCard			:	number /** Id of the card to use */
 
 	idStore			:	number /** Place where card have been used */
+	
+	idBrand			:	number /** Brand where card have been used */
 
 	amount			:	number /** Amount to spend (in cts) */
 }
