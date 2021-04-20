@@ -1,0 +1,45 @@
+@startuml
+
+left to right direction
+folder Models {
+
+	interface IStripePayment {
+		_id
+
+		idUser			:	number
+
+		status			:	Stripe Status
+
+		amount			:	number
+
+		creationDate	:	Date
+	}
+
+}
+
+folder Resolvers {
+
+	
+	class StripePaymentResolver {
+		.. Queries ..
+		stripePayments(user: UserSchema): Array<StripePaymentSchema>
+
+		.. Field Resolver ..
+		user(): IUser
+
+	}
+}
+
+folder Services {
+
+	class StripePaymentService {
+		.. Just Fetch ..
+		stripePayments(idGivor: number): Array<StripePaymentSchema>
+
+		.. Modification ..
+		createStripePayment(gift: IStripePaymentCreate): StripePaymentSchema
+
+	}
+}
+
+@enduml

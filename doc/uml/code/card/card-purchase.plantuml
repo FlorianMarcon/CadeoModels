@@ -13,7 +13,7 @@ folder Models {
 		reference		:	string
 
 		idCard			:	number
-		idBrand			:	number
+		idStore			:	number
 
 		status			:	CardPurchaseStatus
 		amount			:	number
@@ -24,7 +24,8 @@ folder Models {
 	}
 
 	interface ICardPurchaseCreate {
-		idCard		:	number
+		idCard			:	number
+		idStore			:	number
 
 		amount			:	number
 	}
