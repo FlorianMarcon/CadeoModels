@@ -67,3 +67,7 @@ export interface IAuth {
 
 	password	:		string;
 }
+
+export interface IUsersFilter {
+	role?:	Array<Roles>
+}
