@@ -11,6 +11,10 @@ export default interface IBrand  {
 
     description?:    string; /** Description of the brand. Can be undefined */
 
+    theme?  :   any; /** Brand theme */
+
+    domain? :   string; /** Brand domain */
+
     /** FIELD RESOLVERS */
     stores  :   Array<IStore>; /** Stores linked with the brand */
 }
@@ -23,6 +27,8 @@ export interface IBrandCreate {
     name            :   string; /** Name of the brand */
 
     description?    :    string; /** Description of the brand. Can be null */
+
+    domain? :   string; /** Brand domain */
 }
 
 /**
@@ -35,4 +41,8 @@ export interface IBrandUpdate {
     name?            :   string; /** Name of the brand */
 
     description?    :    string | null; /** Description of the brand. Can be null */
+
+    theme?  :   any; /** Brand theme */
+
+    domain? :   string; /** Brand domain */
 }
