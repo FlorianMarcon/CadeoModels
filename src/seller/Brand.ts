@@ -15,6 +15,7 @@ export default interface IBrand  {
 
     domain? :   string; /** Brand domain */
 
+    image?  :   string;
     /** FIELD RESOLVERS */
     stores  :   Array<IStore>; /** Stores linked with the brand */
 }
@@ -45,4 +46,6 @@ export interface IBrandUpdate {
     theme?  :   any; /** Brand theme */
 
     domain? :   string; /** Brand domain */
+
+
 }
