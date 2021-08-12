@@ -1,5 +1,5 @@
-import UserSchema from "../../../database/schema/user.schema";
 import { IStripePayment } from "../payment/stripe-payment";
+import { IUser } from "../User";
 import { ICard } from "./card";
 
 /**
@@ -16,7 +16,7 @@ export interface ICardPayment {
 	card			:	ICard;
 
 	idUser			:	string; /** Id of the user suplying the card */
-	user			:	UserSchema
+	user			:	IUser
 }
 
 export interface ICardPaymentCreate extends Partial<ICardPayment> {
