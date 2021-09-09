@@ -5,7 +5,7 @@
 export interface ICardPhysical {
 	_id				:	number /** Gift id */
 
-	emailDestinary	:	string /** Email of the destinary */
+	message	:	string /** Email of the destinary */
 
 	address			:	string | null;
 
@@ -21,7 +21,7 @@ export interface ICardPhysical {
  * Interface use to create a new physical card
  */
  export interface ICardPhysicalCreate {
-	emailDestinary	:	string /** email of the destinary */
+	message	:	string /** email of the destinary */
 
 	address?			:	string
 
@@ -37,7 +37,7 @@ export interface ICardPhysical {
  export interface ICardPhysicalUpdate {
 	idCardPhysical		:	number /** Id of the card */
 
-	emailDestinary?	:	string /** email of the destinary */
+	message?	:	string /** email of the destinary */
 
 	address?			:	string
 
