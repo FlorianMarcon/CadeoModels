@@ -1,0 +1,89 @@
+@startuml
+left to right direction
+folder Models {
+	interface CardFidelity {
+		_id
+
+		idProprietary
+		idBrand
+
+		points				:	number
+
+		creationDate		:	Date
+		lastUpdate			:	Date
+	}
+
+
+	interface CardFidelitySupplyLog {
+		_id
+
+		idCardFidelity
+		idSupplier
+
+		updatePoints				:	number
+		
+	}
+
+	interface CardFidelitySupply {
+		idCardFidelity
+		idSupplier
+
+		updatePoints		:	number
+	}
+
+	interface Brand {
+		madeFidelity:	boolean
+		madeGift	:	boolean
+	}
+
+
+}
+
+folder Resolvers {
+
+	class User {
+		.. Field Resolvers ..
+		fidelityCards(user: UserSchema): Array<CardFidelitySchema>
+	}
+	class CardFidelityResolver {
+		.. Queries ..
+		fidelityCards(user: UserSchema): Array<CardFidelitySchema>
+
+		fidelityCard(user: UserSchema, idCard: number): CardFidelitySchema
+
+		.. Mutations ...
+		supplyFidelityCard(user: UserSchema, supply: CardFidelitySupply): CardFidelitySchema
+		createFidelityCard(user: UserSchema): CardFidelitySchema
+
+		.. Field Resolvers ..
+		proprietary(card: CardFidelitySchema): UserSchema
+		brand(card: CardFidelitySchema): BrandSchema
+		fidelityCardSupplies(card: CardFidelitySchema): Array<CardFidelitySupplyLogSchema>
+	}
+
+	class BrandResolver {
+
+		
+
+		.. Field Resolvers ..
+		fidelityCard(user: UserSchema): CardFidelitySchema
+	}
+
+}
+
+folder Services {
+
+	class CardFidelityService {
+		.. Just Fetch ..
+		getFidelityCards(idUser: number): Array<CardFidelitySupplyLogSchema>
+
+		getFidelityCard(idCard: number, idUser?: number): CardFidelitySupplyLogSchema
+
+		.. Modification ..
+		createFidelityCard(card: ICardCreate): CardFidelitySupplyLogSchema
+
+		supplyFidelityCard(supply: CardFidelitySupply): CardFidelitySupplyLogSchema 
+	}
+}
+
+@enduml

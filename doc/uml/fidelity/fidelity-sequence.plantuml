@@ -1,0 +1,44 @@
+@startuml
+actor Customer
+actor Seller
+entity API
+
+
+== Fidelity card creation ==
+Customer -> API: Request fidelity card
+alt #LightGreen Successful case
+    API --> Customer: Fidelity card created.
+else #Pink Failure
+    API --> Customer: Fidelity card already existing. Redirect to his fidelity card.
+end
+
+Seller -> API: Request all fidelity cards for his shop.
+API --> Seller: Assuming his shop, return all fidelity cards created by customer.
+
+... Some time later ...
+
+== How to accumulate points ? ==
+Customer -> Seller: I would like a burger please.
+Seller --> Customer : Let's go for one burger man.
+
+Seller -> API: Add N points for fidelity card linked to the customer.
+API --> Customer: N points have been added to your fidelity card by SELLER.
+Customer -> Seller: Thanks man!
+
+== How to spend points ? ==
+Customer -> Seller: I would like a burger please.
+Seller --> Customer : Let's go for one burger man.
+Customer -> Seller: I would pay with fidelity points.
+Seller --> Customer : Yes man !
+
+Seller -> API: Remove N points for fidelity card linked to the customer.
+alt #LightGreen Successful case
+	API --> Customer: N points have been removed from your fidelity card by SELLER.
+else #Pink Failure
+	API --> Seller: Not enought points.
+    
+end
+Customer -> Seller: Thanks man!
+
+
+@enduml
