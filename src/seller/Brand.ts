@@ -25,6 +25,9 @@ export default interface IBrand  {
     
     status  :   BrandStatus; /** Status of the brand */
 
+    madeFidelity    :   boolean;
+    madeGift        :   boolean;
+
     /** FIELD RESOLVERS */
     stores  :   Array<IStore>; /** Stores linked with the brand */
 }
@@ -39,6 +42,9 @@ export interface IBrandCreate {
     description?    :    string; /** Description of the brand. Can be null */
 
     domain? :   string; /** Brand domain */
+
+    madeFidelity?    :   boolean;
+    madeGift?        :   boolean;
 }
 
 /**
@@ -57,4 +63,7 @@ export interface IBrandUpdate {
     domain? :   string; /** Brand domain */
  
     status?         :   BrandStatus; /** Status of the brand */
+
+    madeFidelity?    :   boolean;
+    madeGift?        :   boolean;
 }
