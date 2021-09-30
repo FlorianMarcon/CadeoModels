@@ -5,7 +5,6 @@ export interface CardFidelitySupply {
 	_id					:	number;
 
 	idCardFidelity		:	string;
-	idSupplier			:	string;
 
 	updatePoints		:	number
 	
@@ -20,7 +19,6 @@ export interface CardFidelitySupply {
 
 export interface CreateCardFidelitySupply {
 	idCardFidelity		:	string;
-	idSupplier			:	string;
 
 	updatePoints		:	number
 }

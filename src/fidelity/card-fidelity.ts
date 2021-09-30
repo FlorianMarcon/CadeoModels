@@ -8,7 +8,7 @@ export interface CardFidelity {
 	_id					:	string;
 
 	idProprietary		:	string;
-	idBrand				:	string;
+	idBrand				:	number;
 
 	points				:	number;
 
