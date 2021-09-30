@@ -17,3 +17,11 @@ export interface CardFidelitySupply {
 	supplier	:	IUser
 }
 
+
+export interface CreateCardFidelitySupply {
+	idCardFidelity		:	string;
+	idSupplier			:	string;
+
+	updatePoints		:	number
+}
+
