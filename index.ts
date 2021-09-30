@@ -7,5 +7,7 @@ export * from './src/payment/stripe-payment'
 export * from './src/card/card'
 export * from './src/card/card-gift'
 export * from './src/card/card-purchase'
+export * from './src/fidelity/card-fidelity'
+export * from './src/fidelity/card-fidelity-supply'
 
 
