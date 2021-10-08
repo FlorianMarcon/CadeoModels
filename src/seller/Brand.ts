@@ -17,6 +17,8 @@ export default interface IBrand  {
 
     description?:    string; /** Description of the brand. Can be undefined */
 
+    categories?:    Array<string>; /** Brand categories */
+
     theme?  :   any; /** Brand theme */
 
     domain? :   string; /** Brand domain */
@@ -41,6 +43,8 @@ export interface IBrandCreate {
 
     description?    :    string; /** Description of the brand. Can be null */
 
+    categories?:    Array<string>; /** Brand categories */
+
     domain? :   string; /** Brand domain */
 
     madeFidelity?    :   boolean;
@@ -58,6 +62,8 @@ export interface IBrandUpdate {
 
     description?    :    string | null; /** Description of the brand. Can be null */
 
+    categories?:    Array<string>; /** Brand categories */
+
     theme?  :   any; /** Brand theme */
 
     domain? :   string; /** Brand domain */
@@ -66,4 +72,8 @@ export interface IBrandUpdate {
 
     madeFidelity?    :   boolean;
     madeGift?        :   boolean;
+}
+
+export interface IBrandsFilters {
+    categories?:    Array<string>; /** Brand categories */
 }
