@@ -1,3 +1,4 @@
+import { CardFidelity } from "../..";
 import { IStore } from "./Store";
 
 export enum BrandStatus {
@@ -32,6 +33,7 @@ export default interface IBrand  {
 
     /** FIELD RESOLVERS */
     stores  :   Array<IStore>; /** Stores linked with the brand */
+    fidelityCards   :   Array<CardFidelity>;
 }
 
 /**
