@@ -12,7 +12,7 @@ export interface ICardPayment {
 	idStripePayment	:	number; /** Id of the stripe payment */
 	stripePayment	:	IStripePayment;
 
-	idCard			:	number /** Id of the card suplied */
+	idCard			:	string /** Id of the card suplied */
 	card			:	ICard;
 
 	idUser			:	string; /** Id of the user suplying the card */
@@ -22,7 +22,7 @@ export interface ICardPayment {
 export interface ICardPaymentCreate extends Partial<ICardPayment> {
 	idStripePayment	:	number; /** Id of the stripe payment */
 	
-	idCard			:	number /** Id of the card suplied */
+	idCard			:	string /** Id of the card suplied */
 
 	idUser			:	string /** Id of the user suplying the card */
 }

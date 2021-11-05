@@ -4,7 +4,7 @@ import IBrand from "../seller/Brand";
  * This interface represent the Card model
  */
 export interface ICard {
-	_id					:	number /** Id of the card */
+	_id					:	string /** Id of the card */
 
 	idProprietary		:	string /** Id of the proprietary */
 

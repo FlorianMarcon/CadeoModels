@@ -27,7 +27,7 @@ export interface ICardPhysical {
 
 	deliveryDate?		:	Date /** Delivery date */
 
-	idCard			:	number;
+	idCard			:	string;
 }
 
 

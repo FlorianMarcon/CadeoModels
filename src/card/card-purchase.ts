@@ -34,7 +34,7 @@ export interface ICardPurchase {
  * Interface used to create a purchase
  */
 export interface ICardPurchaseCreate {
-	idCard			:	number /** Id of the card to use */
+	idCard			:	string /** Id of the card to use */
 
 	idStore			:	number /** Place where card have been used */
 	

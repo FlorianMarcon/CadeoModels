@@ -29,7 +29,7 @@ export interface ICardGift {
  * Interface use to create a new gift
  */
 export interface ICardGiftCreate {
-	idCard			:	number /** Id of the card to send */
+	idCard			:	string /** Id of the card to send */
 
 	emailDestinary	:	string /** email of the destinary */
 }
